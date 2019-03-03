@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!--
+  di.xml
+  https://magento.stackexchange.com/questions/111845/magento-2-what-case-i-use-di-xml-and-how-to-use-di-xml-for-module
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Marcin\Weather\Api\Data\WeatherInterface" type="Marcin\Weather\Model\Weather" />
+    <preference for="Marcin\Weather\Api\WeatherRepositoryInterface" type="Marcin\Weather\Model\WeatherRepository" />
+    <preference for="Marcin\Weather\Api\Data\WeatherSearchResultsInterface" type="Magento\Framework\Api\SearchResults"/>
+
+    <type name="Marcin\Weather\Logger\Handler">
+        <arguments>
+            <argument name="filesystem" xsi:type="object">Magento\Framework\Filesystem\Driver\File</argument>
+        </arguments>
+    </type>
+    <type name="Marcin\Weather\Logger\Logger">
+        <arguments>
+            <argument name="name" xsi:type="string">marcinWeatherLog</argument>
+            <argument name="handlers" xsi:type="array">
+                <item name="system" xsi:type="object">Marcin\Weather\Logger\Handler</item>
+            </argument>
+        </arguments>
+    </type>
+</config>

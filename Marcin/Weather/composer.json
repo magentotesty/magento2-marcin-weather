@@ -1,0 +1,17 @@
+{
+    "name": "marcin/weather",
+    "description": "Weather Widget",
+    "type": "magento2-module",
+    "version": "1.0.0",
+    "require": {
+        "cmfcmf/openweathermap-php-api": "*"
+    },
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Marcin\\Weather\\": ""
+        }
+    }
+}

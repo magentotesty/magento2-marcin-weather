@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Widget:etc/widget.xsd">
+    <widget class="Marcin\Weather\Block\Widget\Weather" id="marcin_weather_weather">
+        <label>Weather</label>
+        <description>Weather Marcin Widget</description>
+        <parameters>
+            <parameter name="marcin_weather_widget_title" visible="true" xsi:type="text" sort_order="10">
+                <label translate="true">Weather widget title</label>
+            </parameter>
+        </parameters>
+    </widget>
+</widgets>

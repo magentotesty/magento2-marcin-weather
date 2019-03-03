@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<!--
+  CRON
+  https://www.atwix.com/magento-2/setting-up-cron-jobs/
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Cron:etc/crontab.xsd">
+    <group id="marcin_weather">
+        <job name="marcin_weather_synchronize_weather" instance="Marcin\Weather\Cron\SynchronizeWeather" method="synchronize">
+            <schedule>*/10 * * * *</schedule>
+        </job>
+    </group>
+</config>

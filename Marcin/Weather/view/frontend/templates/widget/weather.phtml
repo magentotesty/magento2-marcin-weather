@@ -1,0 +1,9 @@
+<?php $config = $this->helper('Marcin\Weather\Helper\Config'); ?>
+<?php if ($config->isWeatherModuleEnabled()): ?>
+    <div>
+        <h3 class='weather-title'><?php echo $block->getWidgetTitle(); ?></h3>
+    </div>
+    <div>
+        <p class='weather-content'><?php echo $block->getContent(); ?></p>
+    </div>
+<?php endif; ?>
