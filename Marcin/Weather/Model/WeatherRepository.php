@@ -19,6 +19,8 @@ use Magento\Framework\Api\SearchCriteriaBuilder\Proxy as SearchCriteriaBuilderPr
 use Magento\Framework\Api\SortOrderBuilder;
 use Magento\Framework\Api\SortOrder;
 use Magento\Framework\Api\SearchCriteriaInterface;
+use Magento\Framework\Exception\StateException;
+use Magento\Framework\Exception\NoSuchEntityException;
 
 class WeatherRepository implements WeatherRepositoryInterface
 {
@@ -81,5 +83,29 @@ class WeatherRepository implements WeatherRepositoryInterface
         $result = $this->getList($searchCriteria)->getItems();
 
         return reset($result);
+    }
+
+    public function delete(WeatherInterface $weather)
+    {
+        try {
+            $this->resource->delete($weather);
+            return true;
+        } catch (\Exception $e) {
+            $this->logger->info(__CLASS__ . ': ' . self::WEATHER_COULD_NOT_DELETE);
+            throw new StateException(sprintf(self::WEATHER_COULD_NOT_DELETE));
+        }
+    }
+
+    public function deleteById($id)
+    {
+        $weather = $this->factory->create();
+        $this->resource->load($weather, $id);
+
+        if(!$weather->getId()) {
+            $this->logger->info(__CLASS__ . ': ' . self::WEATHER_COULD_NOT_DELETE_BY_ID, $id);
+            throw new NoSuchEntityException(sprintf(self::WEATHER_COULD_NOT_DELETE_BY_ID, $id));
+        }
+
+        return $this->delete($weather);
     }
 }

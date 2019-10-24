@@ -8,7 +8,7 @@
             </general>
             <api>
                 <provider>open_weather_map</provider>
-                <city>rzeszow</city>
+                <city>lublin</city>
             </api>
         </weather>
     </default>

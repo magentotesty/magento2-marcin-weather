@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Marcin_Weather::menu" title="Weather" module="Marcin_Weather" sortOrder="80" resource="Marcin_Weather::admin"/>
+        <add id="Marcin_Weather::weather_archive" title="Weather Archive" module="Marcin_Weather" sortOrder="1" parent="Marcin_Weather::menu" action="admin_weather/weather/index" resource="Marcin_Weather::weather_history" />
+        <add id="Marcin_Weather::weather_configuration" title="Configuration" module="Marcin_Weather" sortOrder="2" parent="Marcin_Weather::menu" action="adminhtml/system_config/edit/section/weather" resource="Marcin_Weather::weather_configuration"/>
+    </menu>
+</config>

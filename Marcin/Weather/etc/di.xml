@@ -21,4 +21,11 @@
             </argument>
         </arguments>
     </type>
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="marcin_weather_weather_listing_data_source" xsi:type="string">Marcin\Weather\Model\ResourceModel\Weather\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
 </config>

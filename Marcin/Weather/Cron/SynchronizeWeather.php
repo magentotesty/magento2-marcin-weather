@@ -41,7 +41,10 @@ class SynchronizeWeather
         }
 
         try {
+
+
             $city = $this->config->getCity();
+
             $weather = $this->ApiConnection->getWeather($city);
 
             $weatherModel = $this->weatherFactory->create();

@@ -16,7 +16,7 @@ class Weather extends Template implements BlockInterface
     protected $_template = 'widget/weather.phtml';
     protected $weatherRepository;
 
-    public function __construct(WeatherRepositoryInterface $weatherRepository, Template\Context $context) 
+    public function __construct(WeatherRepositoryInterface $weatherRepository, Template\Context $context)
     {
         $this->weatherRepository = $weatherRepository;
         parent::__construct($context);
